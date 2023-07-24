@@ -30,7 +30,7 @@ export const ProductsPreview=()=>{
    
 
     useEffect(() => {
-        fetch('https://fav-food-079.onrender.com//api/products')
+        fetch('https://fav-food-079.onrender.com/api/products')
             .then(response => response.json())
             .then(data => setProducts(data?.data))
             .catch(e => console.log(e))
