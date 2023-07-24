@@ -29,7 +29,7 @@ const Register = () => {
                 }
             })
         
-            fetch('https://fav-food.onrender.com//api/create-user', {
+            fetch('https://fav-food.onrender.com/api/create-user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
