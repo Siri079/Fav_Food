@@ -1,0 +1,39 @@
+const {faker} = require('@faker-js/faker');
+const MongoClient=require("mongodb").MongoClient;
+const _=require("lodash");
+async function main(){
+    const url="mongodb://localhost://27017";
+    const client= new MongoClient(url);
+    try{
+        await client.connect();
+        const productsCollection=client.db("food-app").collection("products");
+        const categoriesCollection=client.db("food-app").collection("categories");
+
+        productsCollection.drop();
+        let categories = ['breakfast', 'veg', 'non-veg', 'drinks','dessert'].map((category) => { return { name: category } });
+        await categoriesCollection.insertMany(categories);
+
+        let imageUrls=[
+            'https://res.cloudinary.com/dlv0lekro/image/upload/v1657056151/food-ordering-app/1_mfgcb5.png',
+        ]
+        let products=[];
+        for (let i = 0; i < 9; i+=1) {
+            let newProduct = {
+                name: faker.commerce.productName(),
+                adjective: faker.commerce.productAdjective(),
+                desciption: faker.commerce.productDescription(),
+                price: faker.commerce.price(),
+                category: _.sample(categories),
+                imageUrl: _.sample(imageUrls)
+            };
+            products.push(newProduct);
+        }
+        await productsCollection.insertMany(products);
+    }catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+main();
