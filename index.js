@@ -17,9 +17,9 @@ const stripe=new Stripe('sk_test_51NTRksSEo2C4UedvwMQCRNepQ0Q95Z8TfqcAB2hgiFOeot
 
 
 
-var corsOptions = {
-    origin: "http://localhost:3000"
-}
+// var corsOptions = {
+//     origin: "http://localhost:3000"
+// }
 // app.use((req, res, next) => {
 //     res.setHeader("Access-Control-Allow-Origin", "https://localhost:8000/api/products");
 //     next();
@@ -33,11 +33,11 @@ const calculateOrderAmount = (orderItems) => {
     return itemsPrice*100 ;
 }
 
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 app.use(
     express.json({
         verify:function(req,res,buf){
