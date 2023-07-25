@@ -5,6 +5,7 @@ const PaymentSuccess = () => {
             <Alert variant="success">
                 Your payment was successful
             </Alert>
+            <p>We will deliver your order very soon.</p>
         </div>
     )
 }
