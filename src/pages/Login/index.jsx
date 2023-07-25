@@ -74,7 +74,7 @@ const Login = () => {
                         className="block appearance-none w-full px-3 py-2 border border-gray-300 roundedn-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-gray-200 focus:border-gray-200"
                         />
                     </div>
-                    <Button variant="secondary" size="large">{loading ? "Loading" : 'Register'}</Button>
+                    <Button variant="secondary" size="large">{loading ? "Loading" : 'LogIn'}</Button>
                 </form>
                 <ToastContainer />
                 </div>
