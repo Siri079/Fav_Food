@@ -8,5 +8,6 @@
 
 ## .skills 
 - Nodejs & Express
+- ReactJs
 - MongoDB Atlas(Database)
 - Stripe for payment Integration 
