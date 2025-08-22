@@ -22,12 +22,6 @@ const Register = () => {
                 sessionStorage.setItem('User Id', uid);
                 sessionStorage.setItem('Auth token', response._tokenResponse.refreshToken)
                 window.dispatchEvent(new Event("storage"))
-            })
-            .catch((error) => {
-                if (error.code === 'auth/email-already-in-use') {
-                    toast.error('Email Already In Use')
-                }
-            })
         
             fetch('https://fav-food.onrender.com/api/create-user', {
                 method: 'POST',
@@ -60,6 +54,12 @@ const Register = () => {
                 setLoading(false);
                 console.log(error)
             })
+        })
+            .catch((error) => {
+                if (error.code === 'auth/email-already-in-use') {
+                    toast.error('Email Already In Use')
+                }
+            });
     }
     return (
         <div className="h-screen bg-white flex  items-center justify-center">
