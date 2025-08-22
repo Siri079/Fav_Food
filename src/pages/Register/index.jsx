@@ -34,8 +34,9 @@ const Register = () => {
                     _id: uid
                 })
             }).then((response) => {
+                setLoading(false);
                 if (response.status === 200) {
-                    setLoading(false);
+                    //setLoading(false);
                     toast.success('Account created successfully!🎉', {
                         position: "top-right",
                         autoClose: 5000,
@@ -46,7 +47,9 @@ const Register = () => {
                         progress: undefined,
                         theme: 'dark'
                         });
+                    console.log('Navigating to home page...');
                     navigate('/');
+                    console.log('Navigation triggered');
                 } else {
                     console.log(response.json());
                 }
